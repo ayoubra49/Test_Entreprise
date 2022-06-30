@@ -1,0 +1,22 @@
+# This file is auto-generated during the composer install
+parameters:
+database_driver: pdo_mysql
+database_host: localhost
+database_port: null
+database_name: db_entreprise
+database_user: root
+database_password: null
+mailer_transport: smtp
+mailer_host: 127.0.0.1
+mailer_user: null
+mailer_password: null
+secret: 0ad4b6d0676f446900a4cb11d96cf0502029620d
+
+doctrine:
+dbal:
+driver: pdo_mysql
+host: '%database_host%'
+dbname: '%database_name%'
+user: '%database_user%'
+password: '%database_password%'
+charset: utf8mb4

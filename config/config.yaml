@@ -1,0 +1,20 @@
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                driver:   pdo_mysql
+                host:     localhost
+                port:     null
+                dbname:   db_entreprise
+                user:     root
+                password: null
+                charset:  UTF8
+                schema_filter: ~^(?!some_table1|some_table2)~
+    orm:
+            default_entity_manager:  default
+            auto_generate_proxy_classes:  true
+            proxy_dir:            "%kernel.cache_dir%/doctrine/orm/Proxies"
+            proxy_namespace:      Proxies
+            resolve_target_entities: []
+            auto_mapping: true

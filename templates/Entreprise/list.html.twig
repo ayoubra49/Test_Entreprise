@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %} 
+   <style> 
+      .table { border-collapse: collapse; } 
+      .table th, td { 
+         border-bottom: 1px solid #ddd; 
+         width: 250px; 
+         text-align: left; 
+         align: left; 
+      } 
+   </style> 
+{% endblock %}  
+{% block content_body %}
+    <a href="{{ path('create_entreprise') }}" class="btn btn-primary pull-right">
+        Create <span class="fa fa-plus-circle"></span>
+    </a>
+    <a href="{{ path('create_entreprise_adress') }}" class="btn btn-primary pull-right">
+        CreateAdress <span class="fa fa-plus-circle"></span>
+    </a>
+    <h1>All Entreprise</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Numéro SIRENE</th>
+                <th>Ville Immatriculation</th>
+                <th>Capitale</th>
+                <th>Date Immatriculation</th>
+                <th>Creation Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entreprise in entreprises %}
+                <tr>
+                    <td>{{ entreprise.name }}</td>
+                    <td>{{ entreprise.numsiren }}</td>
+                    <td>{{ entreprise.villeimm }}</td>
+                    <td>{{ entreprise.capitale }}</td>
+                    <td>{{ entreprise.date_imm|format_datetime() }}</td>
+                    <td>{{ entreprise.date_creation|format_datetime() }}</td>
+                    <td>
+                        <a href="{{ path('entreprise_update', {
+                            id: entreprise.id
+                        }) }}">
+                            <span class="fa fa-pencil">Edit</span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        {% endblock %}
